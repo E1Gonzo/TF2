@@ -1,0 +1,114 @@
+﻿@model PetHome.Models.Interesado
+
+@{
+    ViewBag.Title = "ActualizarInteresados";
+}
+
+<h2>Actualizar Interesados</h2>
+
+@using (Html.BeginForm("ActualizarInteresados", "Registros", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.id_Interesado, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.HiddenFor(model => model.id_Interesado)
+            <input type="text" class="form-control" value="@Model.id_Interesado" disabled />
+            @Html.ValidationMessageFor(model => model.id_Interesado, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.DNI_Interesado, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.HiddenFor(model => model.DNI_Interesado)
+            <input type="text" class="form-control" value="@Model.DNI_Interesado" disabled />
+            @Html.ValidationMessageFor(model => model.DNI_Interesado, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.nombre_Interesado, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.HiddenFor(model => model.nombre_Interesado)
+            <input type="text" class="form-control" value="@Model.nombre_Interesado" disabled />
+            @Html.ValidationMessageFor(model => model.nombre_Interesado, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ApellidoPat, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.HiddenFor(model => model.ApellidoPat)
+            <input type="text" class="form-control" value="@Model.ApellidoPat" disabled />
+            @Html.ValidationMessageFor(model => model.ApellidoPat, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ApellidoMat, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.HiddenFor(model => model.ApellidoMat)
+            <input type="text" class="form-control" value="@Model.ApellidoMat" disabled />
+            @Html.ValidationMessageFor(model => model.ApellidoMat, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.edad_Interesado, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.HiddenFor(model => model.edad_Interesado)
+            <input type="text" class="form-control" value="@Model.edad_Interesado" disabled />
+            @Html.ValidationMessageFor(model => model.edad_Interesado, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.celular_Interesado, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.celular_Interesado, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.celular_Interesado, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.domicilio_Interesado, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.domicilio_Interesado, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.domicilio_Interesado, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.correo_Interesado, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.correo_Interesado, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.correo_Interesado, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.id_perro_Interesado, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.id_perro_Interesado, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.id_perro_Interesado, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    @ViewBag.mensaje
+    <br />
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Guardar" class="btn btn-primary" />
+            @Html.ActionLink("Regresar", "ListadoInteresados", null, new { @Class = "btn btn-outline-primary" })
+        </div>
+    </div>
+</div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

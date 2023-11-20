@@ -1,0 +1,98 @@
+﻿
+
+@model IEnumerable<PetHome.Models.Perro>
+
+@{
+    ViewBag.Title = "MantenimientoListaPerros";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="text-center">
+            <h1 class="h1 mb-2 font-weight-normal">Listado de Perros</h1>
+        </div>
+    </div>
+</div>
+<p>
+    @Html.ActionLink("Volver al Menú", "menuMantenimiento", null, new { @Class = "btn btn-outline-primary" })
+    @Html.ActionLink("Nuevo Registro", "Crear_Perros", null, new { @Class = "btn btn-primary" })
+    <a href="https://localhost:44334/Registros/PrintPerros" class="btn btn-danger"> Generar PDF</a>
+</p>
+<div class="container">
+    <table id="table" class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.id_perro)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.nombre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.edad)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.peso)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.raza)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.color)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.estadoSalud)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.lugarRescate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.interesado)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.id_perro)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.edad)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.peso)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.raza)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.color)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.estadoSalud)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.lugarRescate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.interesado)
+                    </td>
+
+                    <td>
+                        @Html.ActionLink("Actualizar", "ActualizarPerro", new { id = item.id_perro }) |
+                        @Html.ActionLink("Eliminar", "DeletePerros", new { id = item.id_perro })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div>
+    @ViewBag.mensaje
+</div>

@@ -1,0 +1,92 @@
+﻿@model IEnumerable<PetHome.Models.Interesado>
+
+@{
+    ViewBag.Title = "ListadoInteresados";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="text-center">
+            <h1 class="h1 mb-2 font-weight-normal">Listado de Interesados</h1>
+        </div>
+    </div>
+</div>
+<p>
+    @Html.ActionLink("Volver al Menú", "menuMantenimiento", null, new { @Class = "btn btn-outline-primary" })
+    <a href="https://localhost:44334/Registros/PrintInteresados" class="btn btn-danger"> Generar PDF</a>
+</p>
+<div class="container">
+    <table id="table" class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.DNI_Interesado)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.nombre_Interesado)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ApellidoPat)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ApellidoMat)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.edad_Interesado)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.celular_Interesado)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.domicilio_Interesado)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.correo_Interesado)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.id_perro_Interesado)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DNI_Interesado)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.nombre_Interesado)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ApellidoPat)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ApellidoMat)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.edad_Interesado)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.celular_Interesado)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.domicilio_Interesado)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.correo_Interesado)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.id_perro_Interesado)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Actualizar", "ActualizarInteresados", new { id = item.id_Interesado }) |
+                        @Html.ActionLink("Eliminar", "DeleteInteresados", new { id = item.id_Interesado })
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,20 @@
+﻿<style>
+    #Formy {
+        text-align: center;
+        font-size:17px;
+    }
+</style>
+
+@{
+    ViewBag.Title = "menuMantenimiento";
+}
+
+<h2>Mantenimientos</h2>
+
+<br />
+<div id="Formy">
+    @Html.ActionLink("Listado de Perros", "MantenimientoListaPerros", null, new { @Class = "btn btn-outline-primary" }) |
+    @Html.ActionLink("Listado de Interesados", "ListadoInteresados", null, new { @Class = "btn btn-outline-primary" }) |
+    @Html.ActionLink("Salir", "login", null, new { @Class = "btn btn-outline-primary" })
+</div>
+<br />

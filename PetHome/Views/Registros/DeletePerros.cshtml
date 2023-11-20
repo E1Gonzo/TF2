@@ -1,0 +1,98 @@
+﻿@model PetHome.Models.Perro
+
+@{
+    ViewBag.Title = "DeletePerros";
+}
+
+<h2>Eliminar</h2>
+
+<h3>Estás seguro de eliminar el registro?</h3>
+<div>
+    <h4>Perro</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.id_perro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id_perro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.edad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.edad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.peso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.peso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.raza)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.raza)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.color)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.color)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.estadoSalud)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.estadoSalud)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lugarRescate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lugarRescate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.interesado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.interesado)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm("DeletePerrosConfirmed", "Registros", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.id_perro)
+
+        <p>
+            <input type="submit" value="Eliminar" class="btn btn-danger" />
+            @Html.ActionLink("Regresar", "MantenimientoListaPerros", null, new { @Class = "btn btn-outline-danger" })
+        </p>
+    }
+</div>
